@@ -1,13 +1,90 @@
 ---
+import Card from "../components/Card.astro";
+import CardItem from "../components/CardItem.astro";
 import Layout from "../layouts/Layout.astro";
+import CardIcons from "../components/CardIcons.astro";
+import Github from "../components/icons/github.astro";
+import Telegram from "../components/icons/telegram.astro";
+import Email from "../components/icons/email.astro";
+import Linkedin from "../components/icons/linkedin.astro";
 ---
 
-<Layout title="Dimas Januardi">
+<Layout title="Home">
   <main>
     <div class="profile-header">
       <figure></figure>
       <h1>Hello!, im Dimas Januardi!</h1>
-      <p>learning web developer since 2022</p>
+      <p class="details">learning web developer since 2022</p>
+    </div>
+
+    <div class="profile-about">
+      <div class="description">
+        <p>
+          A <strong>web developer</strong> based in Pinrang, South Sulawesi. I have
+          a passion for creating user-friendly websites that help businesses achieve
+          their goals.
+        </p>
+        <p>
+          I can work with anyone, but it was <strong>very slow</strong> when I first
+          started the <strong>relationship</strong>.I'm a <strong
+            >fast learner</strong
+          >. I love creating algorithms, keeping them <strong
+            >simple and easy</strong
+          > to read.
+        </p>
+        <p>
+          What makes me confident is, <strong>I am me not them</strong>, I like
+          to hear their opinion but don't <strong>accept</strong> something as a
+          whole without<strong> thinking</strong> about it first, I can ponder their
+          opinion for days, so that with that I can find the <strong
+            >best solution</strong
+          > and work towards it, <strong>Thats Me.</strong>
+        </p>
+      </div>
+
+      <div class="skills-container container">
+        <h3>Skills</h3>
+        <ul class="cards">
+          <Card title="Main">
+            <CardItem title="HTML 5" body="" />
+            <CardItem title="CSS" body="" />
+            <CardItem title="JAVASCRIPT" body="" />
+            <CardItem title="TYPESCRIPT" body="" />
+          </Card>
+          <Card title="Framework Or Library">
+            <CardItem title="NextJS" body="" />
+            <CardItem title="ReactJS" body="" />
+            <CardItem title="ExpressJS" body="" />
+            <CardItem title="TailwindCSS" body="" />
+            <CardItem title="Astro" body="" />
+          </Card>
+          <Card title="Other">
+            <CardItem title="API" body="" />
+            <CardItem title="UI Design" body="" />
+            <CardItem title="Compositing" body="" />
+            <CardItem title="Video Editing" body="" />
+            <CardItem title="Photo Editing" body="" />
+          </Card>
+        </ul>
+      </div>
+
+      <div class="contact-container container">
+        <h3>Contact</h3>
+        <ul>
+          <CardIcons title="Github">
+            <Github />
+          </CardIcons>
+          <CardIcons title="Telegram">
+            <Telegram />
+          </CardIcons>
+          <CardIcons title="Email">
+            <Email />
+          </CardIcons>
+          <CardIcons title="Linkedin">
+            <Linkedin />
+          </CardIcons>
+        </ul>
+      </div>
     </div>
   </main>
 </Layout>
@@ -15,8 +92,47 @@ import Layout from "../layouts/Layout.astro";
 <style>
   main {
     margin-top: 1.7rem;
+    color: rgba(var(--accent-color), 1);
   }
   .profile-header {
     color: rgba(var(--accent-color), 0.5);
+  }
+  .profile-header h1 {
+    font-size: 2.5rem;
+  }
+  .profile-header .details::before {
+    content: "- ";
+  }
+  .profile-about > div {
+    margin-top: 2rem;
+  }
+
+  .profile-about .description {
+    font-size: 1.2rem;
+  }
+  .profile-about .description p {
+    line-height: 2rem;
+    margin-top: 1rem;
+    font-weight: 400;
+    color: rgba(var(--accent-color), 0.8);
+    text-indent: 0.5rem;
+  }
+  .profile-about strong {
+    color: rgba(var(--accent-color), 1);
+  }
+  .profile-about h3 {
+    font-size: 2.1rem;
+  }
+  .profile-about ul {
+    list-style: none;
+  }
+  .profile-about .skills {
+    display: flex;
+  }
+  .profile-about .container {
+    margin-top: 5rem;
+  }
+  .cards {
+    /* display: flex; */
   }
 </style>

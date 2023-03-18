@@ -3,15 +3,15 @@ import Navigation from "../components/Navigation.astro";
 import Brand from "../components/Brand.astro";
 ---
 
-<header>
+<div>
   <Brand title="YeagDev" />
   <Navigation />
-</header>
+</div>
 <style>
-  header {
+  div {
     display: flex;
     justify-content: space-between;
-    padding-inline: 4rem;
+    padding-inline: min(10%, 4rem);
     padding-block: 2rem;
     align-items: center;
     max-width: 70rem;
