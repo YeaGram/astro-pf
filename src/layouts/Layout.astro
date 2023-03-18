@@ -19,7 +19,7 @@ const { title } = Astro.props;
   <body>
     <Heading />
     <div class="container">
-      <slot />
+      <div class="content"><slot /></div>
     </div>
   </body>
   <style is:global>
@@ -49,9 +49,13 @@ const { title } = Astro.props;
     }
 
     .container {
+      max-width: 70rem;
+      margin-inline: auto;
+    }
+    .content {
       padding-inline: 4rem;
     }
-    .container::before {
+    .content::before {
       content: "";
       display: block;
       height: 4px;
