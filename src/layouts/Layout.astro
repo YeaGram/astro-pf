@@ -1,4 +1,5 @@
 ---
+import Heading from "./heading.astro";
 export interface Props {
   title: string;
 }
@@ -16,26 +17,55 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <Heading />
+    <div class="container">
+      <slot />
+    </div>
   </body>
   <style is:global>
     :root {
       --accent: 124, 58, 237;
+      --base-color: 237, 237, 237;
+      --base-dark: 12, 1, 23;
+      --accent-color: 62, 9, 121;
+      --secondary-color: 255, 6, 0;
       --accent-gradient: linear-gradient(
-        45deg,
-        rgb(var(--accent)),
-        #da62c4 30%,
-        white 60%
+        242deg,
+        rgba(var(--accent-color), 1) 0%,
+        rgba(var(--secondary-color), 1) 100%
+      );
+      --gradient-transparent: linear-gradient(
+        57deg,
+        rgba(var(--accent-color), 1) 25%,
+        rgba(var(--secondary-color), 1) 50%,
+        rgba(255, 255, 255, 0) 75%
       );
     }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .container {
+      padding-inline: 4rem;
+    }
+    .container::before {
+      content: "";
+      display: block;
+      height: 4px;
+      max-width: 300px;
+      margin-bottom: 0.7rem;
+      background: rgb(62, 9, 121);
+      background: var(--accent-gradient);
+    }
+    h1 {
+      color: rgba(var(--accent-color), 1);
     }
     html {
       font-family: system-ui, sans-serif;
-      background-color: #f6f6f6;
+      background-color: rgb(var(--base-color)) !important;
     }
     code {
       font-family: Menlo, Monaco, Lucida Console, Liberation Mono,

@@ -4,6 +4,19 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Dimas Januardi">
   <main>
-    <h1>Hello!, im Dimas Januardi!</h1>
+    <div class="profile-header">
+      <figure></figure>
+      <h1>Hello!, im Dimas Januardi!</h1>
+      <p>learning web developer since 2022</p>
+    </div>
   </main>
 </Layout>
+
+<style>
+  main {
+    margin-top: 1.7rem;
+  }
+  .profile-header {
+    color: rgba(var(--accent-color), 0.5);
+  }
+</style>
