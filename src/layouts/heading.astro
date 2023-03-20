@@ -5,11 +5,12 @@ import Brand from "../components/Brand.astro";
 
 <div>
   <Brand title="YeagDev" />
-  <Navigation />
+  <Navigation mobile={true} />
 </div>
 <style>
   div {
     display: flex;
+    font-size: 1.5rem;
     justify-content: space-between;
     padding-inline: min(10%, 4rem);
     padding-block: 2rem;

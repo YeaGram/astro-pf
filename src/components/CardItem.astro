@@ -1,24 +1,28 @@
 ---
 export interface Props {
   title: string;
-  body: string;
+  body?: string;
+  rate?: string;
 }
 
-const { title, body } = Astro.props;
+const { title, body, rate = "beginner" } = Astro.props;
 ---
 
 <li class="card">
-  <span>{title}</span>
-  <div>
-    <p>{body}</p>
+  <label>{title}</label>
+  <div data-rate={rate}>
+    <p>{rate}</p>
   </div>
 </li>
 <style>
   .card {
     padding: 1rem;
     font-size: 1.2rem;
-    min-width: 250px;
-    /* flex: 1; */
+    min-width: 200px;
+    flex: 1;
+    /* display: flex;
+    justify-content: space-between; */
+
     border: 1px solid darkblue;
     background-color: rgba(var(--accent-color), 0.1);
     border-radius: 0.4rem;
@@ -29,9 +33,33 @@ const { title, body } = Astro.props;
     background-position: 150%;
     transition: all 250ms var(--main-bezier);
   }
+  label {
+    font-weight: 600;
+  }
+  @media only screen and (min-width: 600px) {
+    .card {
+      max-width: 250px;
+    }
+  }
   .card:is(:hover, :focus, :target) {
     background-position: 20%;
     color: white;
     font-weight: 600;
+  }
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  li:hover p {
+    color: rgba(var(--base-color), 0.7);
+  }
+  [data-rate="beginner"] {
+    color: rgba(var(--secondary-color), 0.4);
+  }
+  [data-rate="intermediate"] {
+    color: rgba(var(--accent-color), 0.8);
+  }
+  [data-rate="advance"] {
+    color: rgba(var(--secondary-color), 1);
   }
 </style>

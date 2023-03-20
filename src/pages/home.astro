@@ -7,6 +7,7 @@ import Github from "../components/icons/github.astro";
 import Telegram from "../components/icons/telegram.astro";
 import Email from "../components/icons/email.astro";
 import Linkedin from "../components/icons/linkedin.astro";
+import Brand from "../components/Brand.astro";
 ---
 
 <Layout title="Home">
@@ -20,9 +21,9 @@ import Linkedin from "../components/icons/linkedin.astro";
     <div class="profile-about">
       <div class="description">
         <p>
-          A <strong>web developer</strong> based in Pinrang, South Sulawesi. I have
-          a passion for creating user-friendly websites that help businesses achieve
-          their goals.
+          A <strong>front end web developer, video editor, photo editor</strong>
+          based in Pinrang, South Sulawesi. I have a passion for creating user-friendly
+          websites that help businesses achieve their goals.
         </p>
         <p>
           I can work with anyone, but it was <strong>very slow</strong> when I first
@@ -45,46 +46,61 @@ import Linkedin from "../components/icons/linkedin.astro";
       <div class="skills-container container">
         <h3>Skills</h3>
         <ul class="cards">
-          <Card title="Main">
-            <CardItem title="HTML 5" body="" />
-            <CardItem title="CSS" body="" />
-            <CardItem title="JAVASCRIPT" body="" />
-            <CardItem title="TYPESCRIPT" body="" />
+          <Card title="Main Language">
+            <CardItem title="HTML 5" rate="advance" />
+            <CardItem title="CSS" rate="advance" />
+            <CardItem title="JAVASCRIPT" rate="intermediate" />
+            <CardItem title="TYPESCRIPT" rate="beginner" />
           </Card>
           <Card title="Framework Or Library">
-            <CardItem title="NextJS" body="" />
-            <CardItem title="ReactJS" body="" />
-            <CardItem title="ExpressJS" body="" />
-            <CardItem title="TailwindCSS" body="" />
-            <CardItem title="Astro" body="" />
+            <CardItem title="NextJS" rate="intermediate" />
+            <CardItem title="ReactJS" rate="intermediate" />
+            <CardItem title="ExpressJS" rate="beginner" />
+            <CardItem title="TailwindCSS" rate="intermediate" />
+            <CardItem title="Astro" rate="beginner" />
           </Card>
           <Card title="Other">
-            <CardItem title="API" body="" />
-            <CardItem title="UI Design" body="" />
-            <CardItem title="Compositing" body="" />
-            <CardItem title="Video Editing" body="" />
-            <CardItem title="Photo Editing" body="" />
+            <CardItem title="API" rate="beginner" />
+            <CardItem title="UI Design" rate="intermediate" />
+            <CardItem title="Compositing" rate="intermediate" />
+            <CardItem title="Video Editing" rate="intermediate" />
+            <CardItem title="Photo Editing" rate="intermediate" />
+          </Card>
+          <Card title="Apps">
+            <CardItem title="After Effect" rate="intermediate" />
+            <CardItem title="Premiere Pro" rate="beginner" />
+            <CardItem title="Davinci Resolve" rate="beginner" />
+            <CardItem title="Photoshop" rate="intermediate" />
+            <CardItem title="CorelDraw" rate="intermediate" />
+            <CardItem title="Figma" rate="beginner" />
+            <CardItem title="Git" rate="intermediate" />
+            <CardItem title="Postman" rate="intermediate" />
           </Card>
         </ul>
       </div>
 
-      <div class="contact-container container">
-        <h3>Contact</h3>
-        <ul>
-          <CardIcons title="Github">
-            <Github />
-          </CardIcons>
-          <CardIcons title="Telegram">
-            <Telegram />
-          </CardIcons>
-          <CardIcons title="Email">
-            <Email />
-          </CardIcons>
-          <CardIcons title="Linkedin">
-            <Linkedin />
-          </CardIcons>
-        </ul>
-      </div>
+      <footer class="container">
+        <div class="contact-container">
+          <h3>Contact</h3>
+          <ul>
+            <CardIcons title="Github">
+              <Github />
+            </CardIcons>
+            <CardIcons title="Telegram">
+              <Telegram />
+            </CardIcons>
+            <CardIcons title="Email">
+              <Email />
+            </CardIcons>
+            <CardIcons title="Linkedin">
+              <Linkedin />
+            </CardIcons>
+          </ul>
+        </div>
+        <div class="copy-footer">
+          <Brand title={`YeagDev`} />
+        </div>
+      </footer>
     </div>
   </main>
 </Layout>
@@ -98,22 +114,24 @@ import Linkedin from "../components/icons/linkedin.astro";
     color: rgba(var(--accent-color), 0.5);
   }
   .profile-header h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    line-height: clamp(2rem, 10vw, 4rem);
   }
   .profile-header .details::before {
     content: "- ";
   }
-  .profile-about > div {
-    margin-top: 2rem;
+  .profile-about > :has(div, footer) {
+    margin-top: 4rem;
   }
 
   .profile-about .description {
     font-size: 1.2rem;
   }
   .profile-about .description p {
-    line-height: 2rem;
+    line-height: clamp(1.5rem, 10vw, 2rem);
     margin-top: 1rem;
     font-weight: 400;
+    font-size: clamp(1.1rem, 6vw, 1.4rem);
     color: rgba(var(--accent-color), 0.8);
     text-indent: 0.5rem;
   }
@@ -129,10 +147,21 @@ import Linkedin from "../components/icons/linkedin.astro";
   .profile-about .skills {
     display: flex;
   }
-  .profile-about .container {
-    margin-top: 5rem;
+  .profile-about {
+    margin-top: 3rem;
   }
   .cards {
-    /* display: flex; */
+    /* display: flex;
+    gap: 1rem; */
+  }
+  footer {
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  .copy-footer {
+    text-align: right;
+    margin-block-start: 1rem;
+    font-size: clamp(1rem, 2vw + 1rem, 1.4rem);
   }
 </style>
