@@ -15,6 +15,11 @@ const { title } = Astro.props;
     text-decoration: none;
     color: rgba(var(--base-dark), 0.7) !important;
   }
+  @media (prefers-color-scheme: dark) {
+    a {
+      color: rgba(var(--text-clr-theme), 0.7) !important;
+    }
+  }
   a:is(:hover, :target, :focus) {
     outline: transparent;
     color: rgba(var(--accent-color), 1) !important;

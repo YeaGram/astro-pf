@@ -2,16 +2,10 @@
 import Card from "../components/Card.astro";
 import CardItem from "../components/CardItem.astro";
 import Layout from "../layouts/Layout.astro";
-import CardIcons from "../components/CardIcons.astro";
-import Github from "../components/icons/github.astro";
-import Telegram from "../components/icons/telegram.astro";
-import Email from "../components/icons/email.astro";
-import Linkedin from "../components/icons/linkedin.astro";
-import Brand from "../components/Brand.astro";
 ---
 
 <Layout title="Home">
-  <main>
+  <main class="container">
     <div class="profile-header">
       <figure></figure>
       <h1>Hello!, im Dimas Januardi!</h1>
@@ -43,8 +37,8 @@ import Brand from "../components/Brand.astro";
         </p>
       </div>
 
-      <div class="skills-container container">
-        <h3>Skills</h3>
+      <div class="container">
+        <h2>Skills</h2>
         <ul class="cards">
           <Card title="Main Language">
             <CardItem title="HTML 5" rate="advance" />
@@ -78,29 +72,6 @@ import Brand from "../components/Brand.astro";
           </Card>
         </ul>
       </div>
-
-      <footer class="container">
-        <div class="contact-container">
-          <h3>Contact</h3>
-          <ul>
-            <CardIcons title="Github">
-              <Github />
-            </CardIcons>
-            <CardIcons title="Telegram">
-              <Telegram />
-            </CardIcons>
-            <CardIcons title="Email">
-              <Email />
-            </CardIcons>
-            <CardIcons title="Linkedin">
-              <Linkedin />
-            </CardIcons>
-          </ul>
-        </div>
-        <div class="copy-footer">
-          <Brand title={`YeagDev`} />
-        </div>
-      </footer>
     </div>
   </main>
 </Layout>
@@ -110,12 +81,12 @@ import Brand from "../components/Brand.astro";
     margin-top: 1.7rem;
     color: rgba(var(--accent-color), 1);
   }
+
   .profile-header {
-    color: rgba(var(--accent-color), 0.5);
+    color: rgba(var(--text-clr-theme), 0.5);
   }
-  .profile-header h1 {
-    font-size: clamp(2rem, 10vw, 3.5rem);
-    line-height: clamp(2rem, 10vw, 4rem);
+  .profile-about strong {
+    color: rgba(var(--text-clr-theme), 1);
   }
   .profile-header .details::before {
     content: "- ";
@@ -124,44 +95,21 @@ import Brand from "../components/Brand.astro";
     margin-top: 4rem;
   }
 
-  .profile-about .description {
-    font-size: 1.2rem;
-  }
   .profile-about .description p {
     line-height: clamp(1.5rem, 10vw, 2rem);
     margin-top: 1rem;
-    font-weight: 400;
+    font-weight: var(--fnw-medium);
     font-size: clamp(1.1rem, 6vw, 1.4rem);
-    color: rgba(var(--accent-color), 0.8);
+    color: rgba(var(--text-clr-theme), 0.7);
     text-indent: 0.5rem;
-  }
-  .profile-about strong {
-    color: rgba(var(--accent-color), 1);
-  }
-  .profile-about h3 {
-    font-size: 2.1rem;
   }
   .profile-about ul {
     list-style: none;
   }
-  .profile-about .skills {
-    display: flex;
+  .container {
+    margin-block-start: var(--mt);
   }
   .profile-about {
     margin-top: 3rem;
-  }
-  .cards {
-    /* display: flex;
-    gap: 1rem; */
-  }
-  footer {
-    flex-direction: column;
-    gap: 2rem;
-    justify-content: space-between;
-  }
-  .copy-footer {
-    text-align: right;
-    margin-block-start: 1rem;
-    font-size: clamp(1rem, 2vw + 1rem, 1.4rem);
   }
 </style>

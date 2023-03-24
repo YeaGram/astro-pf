@@ -20,11 +20,8 @@ const { title, body, rate = "beginner" } = Astro.props;
     font-size: 1.2rem;
     min-width: 200px;
     flex: 1;
-    /* display: flex;
-    justify-content: space-between; */
+    border: 1px solid rgb(var(--accent-color));
 
-    border: 1px solid darkblue;
-    background-color: rgba(var(--accent-color), 0.1);
     border-radius: 0.4rem;
     box-shadow: 3px 3px 0 0 rgba(var(--accent-color), 0.4);
     background-image: var(--gradient-transparent);
@@ -34,8 +31,9 @@ const { title, body, rate = "beginner" } = Astro.props;
     transition: all 250ms var(--main-bezier);
   }
   label {
-    font-weight: 600;
+    font-weight: var(--fnw-bold);
   }
+
   @media only screen and (min-width: 600px) {
     .card {
       max-width: 250px;
@@ -43,23 +41,33 @@ const { title, body, rate = "beginner" } = Astro.props;
   }
   .card:is(:hover, :focus, :target) {
     background-position: 20%;
-    color: white;
     font-weight: 600;
+    color: rgb(var(--base-color));
   }
+
   p {
     font-size: 1rem;
     font-weight: 400;
   }
   li:hover p {
-    color: rgba(var(--base-color), 0.7);
+    color: rgba(var(--base-color), 0.7) !important;
   }
-  [data-rate="beginner"] {
+  div[data-rate="beginner"] p {
     color: rgba(var(--secondary-color), 0.4);
   }
-  [data-rate="intermediate"] {
+  div[data-rate="intermediate"] p {
     color: rgba(var(--accent-color), 0.8);
   }
-  [data-rate="advance"] {
+  div[data-rate="advance"] p {
     color: rgba(var(--secondary-color), 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    li p {
+      color: rgb(var(--text-clr-theme), 0.7) !important;
+    }
+    label {
+      color: rgb(var(--text-clr-theme), 1) !important;
+    }
   }
 </style>

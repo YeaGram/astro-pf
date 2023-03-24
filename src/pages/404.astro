@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+const splitPath: string[] = Astro.url.pathname.split("/");
+const endPath: string = splitPath[splitPath.length - 1];
+---
+
+<Layout title={`${endPath} Not Found`}>
+  <div class="container">
+    <h1>{endPath} Not Found (404)</h1>
+    <p>this path is still in development, or isnt avaiable</p>
+  </div>
+</Layout>
+
+<style>
+  h1::first-letter {
+    text-transform: uppercase;
+  }
+  p {
+    margin-top: 1rem;
+    color: rgb(var(--text-clr-theme));
+  }
+  .container {
+    display: grid;
+    place-content: center;
+    padding-block: 4rem;
+  }
+</style>

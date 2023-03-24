@@ -1,0 +1,54 @@
+---
+import Brand from "../components/Brand.astro";
+import CardIcons from "../components/CardIcons.astro";
+import Github from "../components/icons/github.astro";
+import Telegram from "../components/icons/telegram.astro";
+import Email from "../components/icons/email.astro";
+import Linkedin from "../components/icons/linkedin.astro";
+---
+
+<footer class="container">
+  <div class="contact-container">
+    <h2>Contact</h2>
+    <ul>
+      <CardIcons title="Github">
+        <Github />
+      </CardIcons>
+      <CardIcons title="Telegram">
+        <Telegram />
+      </CardIcons>
+      <CardIcons title="Email">
+        <Email />
+      </CardIcons>
+      <CardIcons title="Linkedin">
+        <Linkedin />
+      </CardIcons>
+    </ul>
+  </div>
+  <div class="copy-footer">
+    <Brand title={`YeagDev`} />
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding-inline: var(--content-padding);
+    padding-block-end: 2rem;
+  }
+  .container {
+    margin-block-start: var(--mt);
+  }
+  .copy-footer {
+    text-align: right;
+    margin-block-start: 1rem;
+    font-size: clamp(1rem, 2vw + 1rem, 1.4rem);
+  }
+</style>
+<style is:global>
+  .social-icon {
+    fill: rgba(var(--text-clr-theme), 1);
+  }
+  .social-icon + span {
+    color: rgba(var(--text-clr-theme), 1);
+  }
+</style>

@@ -3,16 +3,16 @@ import Navigation from "../components/Navigation.astro";
 import Brand from "../components/Brand.astro";
 ---
 
-<div>
+<header class="container">
   <Brand title="YeagDev" />
   <Navigation mobile={true} />
-</div>
+</header>
 <style>
-  div {
+  header {
     display: flex;
     font-size: 1.5rem;
     justify-content: space-between;
-    padding-inline: min(10%, 4rem);
+    padding-inline: var(--content-padding);
     padding-block: 2rem;
     align-items: center;
     max-width: 70rem;

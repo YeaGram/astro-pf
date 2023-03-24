@@ -8,13 +8,13 @@ const { mobile } = Astro.props;
 {
   mobile ? (
     <nav>
-      <a href="/home">Home</a>
+      <a href="/about">About</a>
       <a href="/posts">Posts</a>
       <a href="/blog">Blog</a>
     </nav>
   ) : (
     <nav class="mobile">
-      <a href="/home">Home</a>
+      <a href="/about">About</a>
       <a href="/posts">Posts</a>
       <a href="/blog">Blog</a>
     </nav>
@@ -32,12 +32,12 @@ const { mobile } = Astro.props;
     display: flex;
   }
   nav.mobile a {
-    box-shadow: 1px 4px 4px rgba(var(--accent-color), 0.3);
+    box-shadow: 1px 4px 4px rgba(var(--accent-color), 0.1);
     /* color: white; */
-    background-color: rgba(var(--accent-color), 0.1);
+    background-color: rgba(var(--accent-color), 0.02);
   }
   nav.mobile a:is(:hover, :focus, :target) {
-    box-shadow: 1px 5px 10px rgba(var(--accent-color), 0.5);
+    box-shadow: 1px 5px 10px rgba(var(--accent-color), 0.1);
   }
   a {
     text-decoration: none;
@@ -51,7 +51,7 @@ const { mobile } = Astro.props;
     background-position: 110%;
     transition: all 200ms;
     font-weight: 500;
-    color: rgba(var(--accent-color), 1);
+    color: rgba(var(--text-clr-theme), 1);
   }
   a:is(:hover, :focus, :target) {
     color: white;
